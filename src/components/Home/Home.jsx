@@ -3,6 +3,8 @@ import { useLoaderData } from 'react-router-dom';
 import Tshirt from '../Tshirt/Tshirt';
 import Cart from '../Cart/Cart';
 import './Home.css'
+import toast from 'react-hot-toast';
+
 
 const Home = () => {
     const tshirts = useLoaderData();
@@ -11,7 +13,7 @@ const Home = () => {
     const handleAddToCart = tshirt => {
         const exists = cart.find(ts => ts._id === tshirt._id);
         if (exists) {
-            
+            toast('You have already Add this tshirt')
         }
         else {
             const newCart = [...cart, tshirt];
@@ -42,4 +44,7 @@ const Home = () => {
     );
 };
 
-export default Home; <h2>This is home fv</h2>
+export default Home;
+/**
+ * Conditional rendaring
+ */
